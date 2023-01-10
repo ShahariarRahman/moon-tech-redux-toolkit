@@ -16,6 +16,9 @@ const cartSlice = createSlice({
             }
             else {
                 selectedProduct.quantity += 1;
+                state.cart
+                    .filter(product => product._id !== selectedProduct._id)
+                    .push(selectedProduct)
             };
         },
     },
