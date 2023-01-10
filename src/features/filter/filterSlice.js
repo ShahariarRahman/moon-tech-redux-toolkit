@@ -9,7 +9,12 @@ const initialState = {
 const filterSlice = createSlice({
     name: "filter",
     initialState,
-    reducers: {},
+    reducers: {
+        toggle: (state) => {
+            state.stock = !state.stock;
+        },
+    },
 });
 
+export const { toggle } = filterSlice.actions;
 export default filterSlice.reducer;

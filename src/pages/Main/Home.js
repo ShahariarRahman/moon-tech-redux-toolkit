@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard";
+import { toggle } from "../../features/filter/filterSlice";
 
 const Home = () => {
+  const { stock } = useSelector(state => state.filter);
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:5000/product")
@@ -16,7 +21,8 @@ const Home = () => {
     <div className='max-w-7xl gap-14 mx-auto my-10'>
       <div className='mb-10 flex justify-end gap-5'>
         <button
-          className={`border px-3 py-2 rounded-full font-semibold ${activeClass} `}
+          onClick={() => dispatch(toggle())}
+          className={`border px-3 py-2 rounded-full font-semibold ${stock ? activeClass : null} `}
         >
           In Stock
         </button>
