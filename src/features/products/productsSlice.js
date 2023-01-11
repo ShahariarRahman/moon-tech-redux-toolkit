@@ -22,6 +22,10 @@ const productsSlice = createSlice({
                 state.isLoading = true;
                 state.isError = false;
             })
+            .addCase(getProduct.fulfilled, (state, action) => {
+                state.products = action.payload;
+                state.isLoading = false;
+            })
     },
 });
 
