@@ -4,15 +4,18 @@ const initialState = {
     products: [],
 };
 
-
-const getProducts = createAsyncThunk("products/getProducts", async () => {
-
+const getProducts = createAsyncThunk("products/getProduct", async () => {
+    const res = await fetch("http://localhost:5000/product");
+    const data = await res.json();
+    return data;
 });
 
 const productsSlice = createSlice({
     name: 'products',
     initialState,
-    extraReducers: {},
+    extraReducers: (builder) => {
+
+    },
 });
 
 export default productsSlice.reducer;
