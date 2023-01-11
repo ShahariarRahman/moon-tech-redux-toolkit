@@ -2,6 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     products: [],
+    isLoading: false,
+    isError: false,
+    error: "",
 };
 
 export const getProduct = createAsyncThunk("products/getProducts", async () => {
@@ -16,7 +19,8 @@ const productsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getProduct.pending, (state, action) => {
-
+                state.isLoading = true;
+                state.isError = false;
             })
     },
 });
