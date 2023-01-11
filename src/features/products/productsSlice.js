@@ -26,6 +26,12 @@ const productsSlice = createSlice({
                 state.products = action.payload;
                 state.isLoading = false;
             })
+            .addCase(getProduct.rejected, (state, action) => {
+                state.products = [];
+                state.isLoading = false;
+                state.isError = false;
+                state.error = action.error.message;
+            })
     },
 });
 
