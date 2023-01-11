@@ -17,7 +17,7 @@ const productsSlice = createSlice({
         builder
             .addCase(getProduct.pending, (state, action) => {
 
-            });
+            })
     },
 });
 
