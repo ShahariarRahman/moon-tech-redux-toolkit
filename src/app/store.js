@@ -1,7 +1,7 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import logger from "redux-logger";
+import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "../features/cart/cartSlice";
 import filterSlice from "../features/filter/filterSlice";
+import logger from "redux-logger";
 
 const store = configureStore({
     devTools: true,
@@ -9,7 +9,7 @@ const store = configureStore({
         cart: cartSlice,
         filter: filterSlice,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger,),
 });
 
 
