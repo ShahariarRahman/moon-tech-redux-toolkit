@@ -14,6 +14,10 @@ const productsSlice = createSlice({
     name: 'products',
     initialState,
     extraReducers: (builder) => {
+        builder
+            .addCase(getProduct.pending, (state, action) => {
+
+            });
     },
 });
 
