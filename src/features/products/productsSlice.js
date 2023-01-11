@@ -4,7 +4,9 @@ const initialState = {
     products: [],
 };
 
+export const getProduct = createAsyncThunk("products/getProducts", async () => {
 
+});
 
 const productsSlice = createSlice({
     name: 'products',
