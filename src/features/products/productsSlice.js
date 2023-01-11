@@ -9,8 +9,7 @@ const initialState = {
 const productsSlice = createSlice({
     name: 'products',
     initialState,
-    extraReducers: () => {
-
+    extraReducers: (builder) => {
     },
 });
 
